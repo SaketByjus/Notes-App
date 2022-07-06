@@ -22,4 +22,8 @@ class MainActivity : AppCompatActivity() {
         return navController.navigateUp() || super.onNavigateUp()
     }
 
+    override fun onRestart() {
+        super.onRestart()
+    }
+
 }
