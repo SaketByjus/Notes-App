@@ -1,9 +1,13 @@
 package com.example.mynotes.ui.adapter
 
 import android.content.Context
+import android.content.Intent
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.core.content.ContextCompat.startActivity
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
 import com.example.mynotes.Model.Notes
@@ -29,6 +33,17 @@ class NotesAdapter(val requireContext: Context,val notesList: List<Notes>) : Rec
         holder.binding.root.setOnClickListener{
             val action = HomeFragmentDirections.actionHomeFragmentToEditNoteFragment(data)
             Navigation.findNavController(it).navigate(action)
+        }
+        holder.binding.shareBtn1.setOnClickListener {
+            val note=data.notes.toString()
+            val shareIntent = Intent()
+            shareIntent.action = Intent.ACTION_SEND
+            shareIntent.type="text/plain"
+            shareIntent.putExtra(Intent.EXTRA_TEXT, note)
+            Log.e("222", "onBindViewHolder: $note", )
+//            startActivity(Intent.createChooser(shareIntent,"Share via"))
+
+
         }
    }
 

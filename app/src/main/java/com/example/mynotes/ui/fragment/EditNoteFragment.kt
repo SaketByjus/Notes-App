@@ -1,6 +1,7 @@
 package com.example.mynotes.ui.fragment
 
 import android.app.AlertDialog
+import android.content.Intent
 import android.os.Bundle
 import android.view.*
 import androidx.fragment.app.Fragment
@@ -43,11 +44,24 @@ class EditNoteFragment : Fragment() {
         binding.btnEdit.setOnClickListener{
             saveEdittedNote(it)
         }
+        binding.shareBtn.setOnClickListener {
+            shareNote(it);
+        }
 
 
         return binding.root
     }
 
+    private fun shareNote(it: View?)
+    {
+
+        val note=binding.editText.text.toString()
+        val shareIntent = Intent()
+        shareIntent.action = Intent.ACTION_SEND
+        shareIntent.type="text/plain"
+        shareIntent.putExtra(Intent.EXTRA_TEXT, note)
+        startActivity(Intent.createChooser(shareIntent,"Share via"))
+    }
     private fun saveEdittedNote(it: View?) {
         val title = binding.editTextEdit.text.toString()
         val note=binding.editText.text.toString()
