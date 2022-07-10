@@ -2,6 +2,7 @@ package com.example.mynotes.ui.adapter
 
 import android.content.Context
 import android.content.Intent
+import android.content.Intent.*
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -34,18 +35,23 @@ class NotesAdapter(val requireContext: Context,val notesList: List<Notes>) : Rec
             val action = HomeFragmentDirections.actionHomeFragmentToEditNoteFragment(data)
             Navigation.findNavController(it).navigate(action)
         }
+
+
         holder.binding.shareBtn1.setOnClickListener {
-            val note=data.notes.toString()
-            val shareIntent = Intent()
-            shareIntent.action = Intent.ACTION_SEND
-            shareIntent.type="text/plain"
-            shareIntent.putExtra(Intent.EXTRA_TEXT, note)
-            Log.e("222", "onBindViewHolder: $note", )
-//            startActivity(Intent.createChooser(shareIntent,"Share via"))
+            var note=data.notes.toString()
+            var share = Intent()
+            share.action = ACTION_SEND
+            share.type="text/plain"
+            share.putExtra(EXTRA_TEXT, note)
+            Log.e("222", "onBindViewHolder: $note")
+            it.getContext().startActivity(createChooser(share,"Share via"))
 
 
         }
    }
+
+
+
 
 
     override fun getItemCount()= notesList.size
