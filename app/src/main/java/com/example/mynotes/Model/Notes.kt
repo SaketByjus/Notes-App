@@ -1,5 +1,6 @@
 package com.example.mynotes.Model
 
+
 import android.os.Parcelable
 import androidx.room.Entity
 import androidx.room.PrimaryKey
@@ -7,7 +8,7 @@ import kotlinx.parcelize.Parcelize
 
 @Entity(tableName = "Notes")
 @Parcelize
-class Notes (
+class Notes(
 
     @PrimaryKey(autoGenerate = true)
     var id: Int?=null,
@@ -15,6 +16,8 @@ class Notes (
     var title: String,
 
     var notes: String,
+
+    var imgPath:String,
 
     var date: String,
 ): Parcelable

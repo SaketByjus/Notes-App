@@ -54,6 +54,7 @@
                 android:text="Dummy" />
 
 
+
             <ImageView
                 android:id="@+id/shareBtn"
                 android:layout_width="wrap_content"
@@ -63,7 +64,32 @@
                 android:layout_marginTop="10dp"
                 android:layout_marginEnd="180dp"
                 android:src="@drawable/ic_baseline_share_24" />
+     
+
+            <ImageView
+                android:id="@+id/txt_addimage1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_baseline_add_photo_alternate_24"
+                android:background="@drawable/btn_style"
+                android:backgroundTint="@color/teal_200"
+                android:layout_alignParentRight="true"
+                android:paddingRight="10dp"
+                android:layout_margin="5dp"
+                android:padding="8dp" />
         </RelativeLayout>
+        <ImageView
+            android:id="@+id/imgNote1"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:adjustViewBounds="true"
+            android:contentDescription="@string/app_name"
+            android:visibility="gone"
+            app:layout_constraintTop_toBottomOf="@id/linearLayout3"/>
+
 
         <EditText
             android:id="@+id/editText"
@@ -73,26 +99,23 @@
             android:layout_marginStart="10dp"
             android:layout_marginTop="10dp"
             android:layout_marginEnd="10dp"
-            android:layout_marginBottom="30dp"
             android:background="@drawable/edit_txt"
-            android:hint="Note"
             android:gravity="top"
+            android:hint="Note"
             android:padding="20dp"
-            app:layout_constraintBottom_toTopOf="@+id/btn_edit"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/linearLayout3" />
+            app:layout_constraintTop_toBottomOf="@+id/imgNote1" />
 
-        <Button
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/btn_edit"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="3dp"
-            android:text="Save"
-            android:background="@drawable/btn_style"
+            android:layout_margin="15dp"
+            android:src="@drawable/ic_baseline_check_24"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintEnd_toEndOf="parent" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
