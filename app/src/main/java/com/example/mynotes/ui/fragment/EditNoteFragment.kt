@@ -15,7 +15,7 @@ import com.example.mynotes.ViewModel.NotesViewModel
 import com.example.mynotes.databinding.FragmentEditNoteBinding
 import java.text.SimpleDateFormat
 
-class EditNoteFragment : Fragment() {
+class  EditNoteFragment : Fragment() {
 
     lateinit var binding: FragmentEditNoteBinding
     lateinit var dateString:String
