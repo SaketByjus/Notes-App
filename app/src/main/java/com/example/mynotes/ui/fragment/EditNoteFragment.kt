@@ -29,7 +29,7 @@ class  EditNoteFragment : Fragment() {
     val viewModel: NotesViewModel by viewModels()
     var REQUEST_CODE_STORAGE_PERMISSION: Int =1
     var REQUEST_CODE_SELECT_IMAGE: Int =2
-    lateinit var path:String
+    var path:String=""
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -50,8 +50,11 @@ class  EditNoteFragment : Fragment() {
 
         binding.editTextEdit.setText(argNotes.data.title)
         binding.editText.setText(argNotes.data.notes)
-        binding.imgNote1.visibility=View.VISIBLE
-        binding.imgNote1.setImageURI(Uri.parse(argNotes.data.imgPath))
+        if(argNotes.data.imgPath!="")
+        {
+            binding.imgNote1.visibility=View.VISIBLE
+            binding.imgNote1.setImageURI(Uri.parse(argNotes.data.imgPath))
+        }
         binding.btnEdit.setOnClickListener{
             saveEdittedNote(it)
         }
