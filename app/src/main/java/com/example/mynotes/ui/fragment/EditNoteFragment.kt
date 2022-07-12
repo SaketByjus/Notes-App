@@ -55,6 +55,7 @@ class  EditNoteFragment : Fragment() {
             binding.imgNote1.visibility=View.VISIBLE
             binding.imgNote1.setImageURI(Uri.parse(argNotes.data.imgPath))
         }
+
         binding.btnEdit.setOnClickListener{
             saveEdittedNote(it)
         }
