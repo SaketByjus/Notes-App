@@ -1,5 +1,7 @@
 package com.example.mynotes.ui.adapter
 
+import android.R
+import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
 import android.content.Intent.*
@@ -7,23 +9,25 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
+import androidx.appcompat.widget.PopupMenu
 import androidx.core.content.ContextCompat.startActivity
+import androidx.fragment.app.viewModels
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
 import com.example.mynotes.Model.Notes
-import com.example.mynotes.databinding.FragmentEditNoteBinding
+import com.example.mynotes.ViewModel.NotesViewModel
 import com.example.mynotes.databinding.ItemNotesBinding
-import com.example.mynotes.ui.fragment.HomeFragment
 import com.example.mynotes.ui.fragment.HomeFragmentDirections
 
 class NotesAdapter(val requireContext: Context,val notesList: List<Notes>) : RecyclerView.Adapter<NotesAdapter.notesViewHolder> (){
     class notesViewHolder(val binding:ItemNotesBinding) : RecyclerView.ViewHolder(binding.root)
 
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): notesViewHolder {
         return notesViewHolder(ItemNotesBinding.inflate(LayoutInflater.from(parent.context),parent,false))
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     override fun onBindViewHolder(holder: notesViewHolder, position: Int) {
         val data = notesList[position]
         holder.binding.itemTitle.text=data.title
@@ -31,13 +35,13 @@ class NotesAdapter(val requireContext: Context,val notesList: List<Notes>) : Rec
         holder.binding.itemDate.text=data.date
 
 
-        holder.binding.root.setOnClickListener{
+        holder.binding.editNt.setOnClickListener{
             val action = HomeFragmentDirections.actionHomeFragmentToEditNoteFragment(data)
             Navigation.findNavController(it).navigate(action)
         }
 
 
-        holder.binding.shareBtn1.setOnClickListener {
+        holder.binding.shareNt.setOnClickListener {
             var note=data.notes.toString()
             var share = Intent()
             share.action = ACTION_SEND
@@ -48,12 +52,14 @@ class NotesAdapter(val requireContext: Context,val notesList: List<Notes>) : Rec
 
 
         }
+
+
+
    }
-
-
-
 
 
     override fun getItemCount()= notesList.size
 
 }
+
+
