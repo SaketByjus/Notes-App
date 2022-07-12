@@ -21,7 +21,7 @@ import com.example.mynotes.ViewModel.NotesViewModel
 import com.example.mynotes.databinding.FragmentEditNoteBinding
 import java.text.SimpleDateFormat
 
-class EditNoteFragment : Fragment() {
+class  EditNoteFragment : Fragment() {
 
     lateinit var binding: FragmentEditNoteBinding
     lateinit var dateString:String
@@ -29,7 +29,7 @@ class EditNoteFragment : Fragment() {
     val viewModel: NotesViewModel by viewModels()
     var REQUEST_CODE_STORAGE_PERMISSION: Int =1
     var REQUEST_CODE_SELECT_IMAGE: Int =2
-    var path:String = ""
+    var path:String=""
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -59,6 +59,9 @@ class EditNoteFragment : Fragment() {
         binding.btnEdit.setOnClickListener{
             saveEdittedNote(it)
         }
+        binding.shareBtn.setOnClickListener {
+            shareNote(it);
+        }
 
         binding.txtAddimage1.setOnClickListener {
             if(ContextCompat.checkSelfPermission(requireContext(),android.Manifest.permission.READ_EXTERNAL_STORAGE)== PackageManager.PERMISSION_GRANTED){
@@ -79,6 +82,16 @@ class EditNoteFragment : Fragment() {
         return binding.root
     }
 
+    private fun shareNote(it: View?)
+    {
+
+        val note=binding.editText.text.toString()
+        val shareIntent = Intent()
+        shareIntent.action = Intent.ACTION_SEND
+        shareIntent.type="text/plain"
+        shareIntent.putExtra(Intent.EXTRA_TEXT, note)
+        startActivity(Intent.createChooser(shareIntent,"Share via"))
+    }
     private fun saveEdittedNote(it: View?) {
         val title = binding.editTextEdit.text.toString()
         val note=binding.editText.text.toString()

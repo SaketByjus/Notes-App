@@ -12,9 +12,11 @@
         <entry key="app/src/main/res/layout/fragment_add_note.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_edit_note.xml" value="0.2006340579710145" />
         <entry key="app/src/main/res/layout/fragment_home.xml" value="0.25" />
-        <entry key="app/src/main/res/layout/item_notes.xml" value="0.30885416666666665" />
+        <entry key="app/src/main/res/layout/item_notes.xml" value="0.25" />
         <entry key="app/src/main/res/menu/menu_delete.xml" value="0.25" />
         <entry key="app/src/main/res/menu/menu_image.xml" value="0.23697916666666666" />
+        <entry key="app/src/main/res/menu/menu_popup.xml" value="0.23802083333333332" />
+        <entry key="app/src/main/res/menu/popup_menu.xml" value="0.23697916666666666" />
       </map>
     </option>
   </component>

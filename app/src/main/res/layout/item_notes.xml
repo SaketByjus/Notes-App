@@ -40,6 +40,29 @@
                 android:layout_marginTop="10dp"
                 android:textSize="15sp"
                 android:maxLines="1"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:id="@+id/editNt"
+                    android:src="@drawable/ic_baseline_edit_24"
+                    android:background="@drawable/btn_style"
+                    android:backgroundTint="@color/teal_200"
+                    android:layout_marginTop="10dp"/>
+                <ImageView
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:id="@+id/shareNt"
+                    android:src="@drawable/ic_baseline_share_24"
+                    android:background="@drawable/btn_style"
+                    android:backgroundTint="@color/teal_200"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginStart="15dp"/>
+
+            </LinearLayout>
+
 
         </LinearLayout>
 

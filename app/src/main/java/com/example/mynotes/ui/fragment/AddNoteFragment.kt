@@ -26,7 +26,7 @@ class AddNoteFragment : Fragment() {
     val viewModel: NotesViewModel by viewModels()
     var REQUEST_CODE_STORAGE_PERMISSION: Int =1
     var REQUEST_CODE_SELECT_IMAGE: Int =2
-    var path: String =""
+    var path: String=""
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

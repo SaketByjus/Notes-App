@@ -45,21 +45,45 @@
                 android:id="@+id/txt_time1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="5dp"
-                android:padding="8dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginBottom="5dp"
                 android:background="@drawable/edit_txt"
+                android:padding="8dp"
                 android:text="Dummy" />
+
+
+            <ImageView
+                android:id="@+id/shareBtn"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_alignParentRight="true"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginBottom="5dp"
+                android:background="@drawable/btn_style"
+                android:backgroundTint="@color/teal_200"
+                android:padding="8dp"
+                android:paddingRight="10dp"
+                android:src="@drawable/ic_baseline_share_24" />
+
+
             <ImageView
                 android:id="@+id/txt_addimage1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/ic_baseline_add_photo_alternate_24"
+                android:layout_alignParentRight="true"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="60dp"
+                android:layout_marginBottom="5dp"
                 android:background="@drawable/btn_style"
                 android:backgroundTint="@color/teal_200"
-                android:layout_alignParentRight="true"
+                android:padding="8dp"
                 android:paddingRight="10dp"
-                android:layout_margin="5dp"
-                android:padding="8dp" />
+                android:src="@drawable/ic_baseline_add_photo_alternate_24" />
         </RelativeLayout>
         <ImageView
             android:id="@+id/imgNote1"
@@ -72,6 +96,7 @@
             android:contentDescription="@string/app_name"
             android:visibility="gone"
             app:layout_constraintTop_toBottomOf="@id/linearLayout3"/>
+
 
         <EditText
             android:id="@+id/editText"
