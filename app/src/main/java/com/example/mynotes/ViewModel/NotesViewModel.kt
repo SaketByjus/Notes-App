@@ -33,8 +33,6 @@ class NotesViewModel(application: Application): AndroidViewModel(application) {
         repository.updateNotes(notes)
     }
 
-    fun OnTaskSwipped(id:Int){
-        repository.deleteNotes(id)
-    }
+
 
 }

@@ -1,5 +1,6 @@
 package com.example.mynotes.ui.fragment
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -37,12 +38,18 @@ class HomeFragment : Fragment() {
             binding.rv.layoutManager=LinearLayoutManager(requireContext())
             binding.rv.adapter=NotesAdapter(requireContext(),notesList)
             val swipeDelete = object: SwipeToDelete(){
+                @SuppressLint("NotifyDataSetChanged")
                 override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
 
                     val position=viewHolder.adapterPosition
-                    notesList[position].id?.let { viewModel.OnTaskSwipped(it) }
-                   // notesList[position].id?.let { viewModel.deleteNotes(it) }
-                    binding.rv.adapter?.notifyItemRemoved(position)
+
+                    val deletedNote:Notes=notesList.get(position)
+                    notesList[position].id?.let { viewModel.deleteNotes(it) }
+
+                    Snackbar.make(requireView(),"Note Deleted",Snackbar.LENGTH_LONG).setAction("Undo",View.OnClickListener {
+                        viewModel.addNotes(deletedNote)
+                        binding.rv.adapter?.notifyDataSetChanged()
+                    }).show()
 
                 }
             }
